@@ -19,5 +19,22 @@ class LinkedListNode():
         self.next  = None
 
 def reverse(head_of_list):
-    # Your code here
+    current_node = head_of_list
+    prev_node = None
+    next_node = None
 
+    while current_node:
+        next_node = current_node.next
+
+        current_node.next = prev_node
+
+        prev_node = current_node
+        current_node = next_node
+    
+    return prev_node
+
+l1 = LinkedListNode(10)
+l1.next = LinkedListNode(20)
+l1.next.next = LinkedListNode(30)
+
+l2 = reverse(l1)
